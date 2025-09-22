@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDULINK</title>
+    <title>EDUSTELLAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -57,21 +57,21 @@
                 <div class="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
                     <h1 class="text-3xl font-bold text-gray-800 mb-2">Buat Akun Baru</h1>
                     <p class="text-slate-500 mb-6">Gabung dan mulai perjalanan belajarmu!</p>
-                    <form onsubmit="event.preventDefault(); showAuthPage('loginPage'); showNotification('Pendaftaran berhasil! Silakan login.', 'success');" class="space-y-4">
+                    <form id="registerForm" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-medium text-slate-600">Nama Depan</label><input type="text" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
-                            <div><label class="block text-sm font-medium text-slate-600">Nama Belakang</label><input type="text" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
+                            <div><label class="block text-sm font-medium text-slate-600">Nama Depan</label><input type="text" id="firstName" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
+                            <div><label class="block text-sm font-medium text-slate-600">Nama Belakang</label><input type="text" id="lastName" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
                         </div>
-                        <div><label class="block text-sm font-medium text-slate-600">Alamat Email</label><input type="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
-                        <div><label class="block text-sm font-medium text-slate-600">Buat Sandi</label><input type="password" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
-                        <div><label class="block text-sm font-medium text-slate-600">Konfirmasi Sandi</label><input type="password" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
+                        <div><label class="block text-sm font-medium text-slate-600">Alamat Email</label><input type="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
+                        <div><label class="block text-sm font-medium text-slate-600">Buat Sandi</label><input type="password" id="password" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
+                        <div><label class="block text-sm font-medium text-slate-600">Konfirmasi Sandi</label><input type="password" id="confirmPassword" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></div>
                         <button type="submit" class="w-full bg-sky-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-sky-600">Daftar</button>
                     </form>
                      <p class="text-center text-sm text-slate-500 mt-6">Sudah punya akun? <a href="#" onclick="showAuthPage('loginPage')" class="font-semibold text-sky-500 hover:text-sky-600">Masuk di sini</a></p>
                 </div>
             </div>
              <div class="hidden lg:flex flex-col items-center justify-center bg-blue-800 text-white p-12 text-center">
-                 <h1 class="text-6xl font-extrabold tracking-wider">EDULINK</h1>
+                 <h1 class="text-6xl font-extrabold tracking-wider">EDUSTELLAR</h1>
                  <p class="mt-4 text-lg text-blue-200">Satu Akun untuk Semua Kebutuhan Belajarmu.</p>
                  <i data-lucide="rocket" class="w-48 h-48 mt-12 text-blue-600"></i>
             </div>
@@ -79,7 +79,7 @@
         <!-- Halaman Login -->
         <div id="loginPage" class="auth-page grid lg:grid-cols-2 h-screen w-full">
             <div class="hidden lg:flex flex-col items-center justify-center bg-blue-800 text-white p-12 text-center">
-                 <h1 class="text-6xl font-extrabold tracking-wider">EDULINK</h1>
+                 <h1 class="text-6xl font-extrabold tracking-wider">EDUSTELLAR</h1>
                  <p class="mt-4 text-lg text-blue-200">Gerbang Menuju Potensi Akademik Terbaikmu.</p>
                  <i data-lucide="graduation-cap" class="w-48 h-48 mt-12 text-blue-600"></i>
             </div>
@@ -87,14 +87,14 @@
                 <div class="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
                     <h1 class="text-3xl font-bold text-gray-800 mb-2">Selamat Datang Kembali</h1>
                     <p class="text-slate-500 mb-8">Mulai langkahmu, temukan solusi terbaik.</p>
-                    <form onsubmit="event.preventDefault(); login();" class="space-y-4">
+                    <form id="loginForm" class="space-y-4">
                         <div>
                             <label for="login-email" class="block text-sm font-medium text-slate-600">Alamat Email</label>
-                            <input type="email" id="login-email" value="user@edulink.com" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">
+                            <input type="email" id="login-email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">
                         </div>
                         <div>
                             <label for="login-password" class="block text-sm font-medium text-slate-600">Kata Sandi</label>
-                            <input type="password" id="login-password" value="password123" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">
+                            <input type="password" id="login-password" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">
                         </div>
                         <button type="submit" class="w-full bg-sky-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-sky-600 transition-transform hover:scale-[1.02]">Masuk</button>
                     </form>
@@ -110,7 +110,7 @@
     <div id="app-wrapper" class="flex h-screen hidden">
         <!-- Sidebar -->
         <nav class="w-64 bg-white shadow-lg flex-col hidden md:flex">
-            <div class="p-6 text-center border-b"><h1 class="text-3xl font-extrabold tracking-wider text-blue-800">EDULINK</h1></div>
+            <div class="p-6 text-center border-b"><h1 class="text-3xl font-extrabold tracking-wider text-blue-800">EDUSTELLAR</h1></div>
             <div class="flex-grow p-4 space-y-2">
                 <a href="#" onclick="showPage('berandaPage', this)" class="sidebar-link flex items-center p-3 rounded-lg text-slate-600 hover:bg-sky-100 transition-colors active"><i data-lucide="layout-dashboard" class="w-5 h-5 mr-3 text-slate-500"></i> Beranda</a>
                 <a href="#" onclick="showPage('chatPage', this)" class="sidebar-link flex items-center p-3 rounded-lg text-slate-600 hover:bg-sky-100 transition-colors"><i data-lucide="message-circle" class="w-5 h-5 mr-3 text-slate-500"></i> Chat</a>
@@ -126,7 +126,7 @@
         <!-- Main Content -->
         <main class="flex-1 p-8 overflow-y-auto main-content">
             <div id="berandaPage" class="page active">
-                <h1 class="text-3xl font-bold text-gray-800 mb-8">Selamat Datang, Rifki!</h1>
+                <h1 class="text-3xl font-bold text-gray-800 mb-8" id="welcomeMessage">Selamat Datang!</h1>
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                      <div onclick="setupFeaturePage('consulink')" class="feature-card bg-white p-6 rounded-xl text-center cursor-pointer border"><div class="bg-emerald-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4"><i data-lucide="messages-square" class="w-10 h-10 text-emerald-500"></i></div><h3 class="text-xl font-bold text-blue-800">Consulink</h3></div>
                     <div onclick="setupFeaturePage('riselink')" class="feature-card bg-white p-6 rounded-xl text-center cursor-pointer border"><div class="bg-violet-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4"><i data-lucide="file-text" class="w-10 h-10 text-violet-500"></i></div><h3 class="text-xl font-bold text-blue-800">Riselink</h3></div>
@@ -229,7 +229,7 @@
                 <div id="mentorRegisterSuccess" class="hidden text-center bg-white p-12 rounded-xl border">
                     <i data-lucide="check-circle-2" class="w-16 h-16 mx-auto text-green-500 mb-4"></i>
                     <h2 class="text-2xl font-bold">Pendaftaran Terkirim!</h2>
-                    <p class="text-slate-500 mt-2 max-w-xl mx-auto">Pendaftaran mitra mentor telah kami terima. Tim EDULINK akan meninjau datamu dan menghubungimu segera melalui email untuk memberikan status pendaftaran.</p>
+                    <p class="text-slate-500 mt-2 max-w-xl mx-auto">Pendaftaran mitra mentor telah kami terima. Tim EDUSTELLAR akan meninjau datamu dan menghubungimu segera melalui email untuk memberikan status pendaftaran.</p>
                     <button onclick="showPage('berandaPage')" class="mt-6 bg-sky-500 text-white font-semibold py-2 px-6 rounded-lg">Kembali ke Beranda</button>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Bagaimana jika saya tidak puas dengan mentor?</a>
                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Apakah saya bisa mengubah jadwal sesi?</a>
                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Saya memiliki kendala pada transaksi.</a>
-                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Bagaimana cara menjadi mentor di EDULINK?</a>
+                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Bagaimana cara menjadi mentor di EDUSTELLAR?</a>
                     <a href="#" onclick="showPage('csChatPage')" class="block py-4 font-semibold cursor-pointer hover:text-sky-500">Saya ingin mengajukan keluhan lain.</a>
                 </div>
             </div>
@@ -251,308 +251,478 @@
                  <header class="flex items-center mb-6 max-w-6xl mx-auto"><button onclick="showPage('berandaPage')" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 id="featureTitle" class="text-3xl font-bold text-gray-800"></h1></header>
                 <div class="w-full max-w-6xl mx-auto">
                     <div id="featureFormContainer" class="bg-white p-8 rounded-xl border shadow-sm"><h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">Cari Mentor Terbaikmu</h2><form id="featureForm" class="space-y-4"></form><button id="searchMentorBtn" class="mt-6 w-full bg-sky-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-sky-600 transition-transform hover:scale-[1.02]">Cari Mentor</button></div>
-                    <div id="mentorResults" class="hidden"><h2 class="text-2xl font-bold text-gray-800 mb-4">Hasil Pencarian Mentor</h2><div id="mentorList" class="space-y-4"></div><button onclick="resetFeaturePage()" class="mt-6 w-full bg-slate-200 text-slate-700 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300">Cari Lagi</button></div>
+                    <div id="mentorResults" class="hidden"><h2 class="text-2xl font-bold text-gray-800 mb-4">Hasil Pencarian Mentor</h2><div id="mentorList" class="space-y-4"></div></div>
                 </div>
             </div>
-
-            <div id="paymentPage" class="page"></div>
             
-            <div id="promoDetailPage" class="page">
-                 <header class="flex items-center mb-6"><button onclick="showPage('promoPage')" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 class="text-3xl font-bold text-gray-800">Detail Promo Cashback</h1></header>
-                 <div class="bg-white p-8 rounded-xl border">
-                    <h2 class="text-2xl font-bold text-blue-800">Dapatkan Cashback 10% dengan E-Wallet!</h2>
-                    <p class="text-slate-500 mt-2 mb-4">Nikmati kemudahan transaksi dan dapatkan keuntungan lebih!</p>
-                    <div class="prose max-w-none">
-                        <p><strong>Periode Promo:</strong> 1 - 30 September 2025</p>
-                        <p><strong>Metode Pembayaran:</strong> GoPay, OVO, Dana</p>
-                        <h3 class="font-bold mt-4">Syarat dan Ketentuan:</h3>
-                        <ul>
-                            <li>Promo berlaku untuk semua layanan di EDULINK tanpa minimum transaksi.</li>
-                            <li>Maksimal cashback yang didapat adalah Rp 3.000 per transaksi.</li>
-                            <li>Setiap pengguna dapat menggunakan promo ini sebanyak 3 kali selama periode promo.</li>
-                            <li>Cashback akan diterima maksimal 1x24 jam setelah transaksi berhasil.</li>
-                            <li>Promo tidak dapat digabungkan dengan promo lainnya.</li>
-                        </ul>
-                    </div>
-                 </div>
+            <div id="paymentPage" class="page">
+                <header class="flex items-center mb-6"><button onclick="showPage('langgananPage')" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 class="text-3xl font-bold text-gray-800">Pembayaran</h1></header>
+                <div class="bg-white p-8 rounded-xl border shadow-sm max-w-2xl">
+                    <div id="paymentDetails" class="mb-8 p-4 bg-slate-50 rounded-lg"><h2 class="text-xl font-bold text-blue-800 mb-2">Detail Pembelian</h2><p id="paymentItem" class="text-lg font-semibold"></p><p id="paymentPrice" class="text-2xl font-bold text-sky-500"></p></div>
+                    <form class="space-y-6">
+                        <div><label class="block text-sm font-medium text-slate-700">Metode Pembayaran</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm form-select"><option>Transfer Bank (BCA, Mandiri, BRI)</option><option>E-Wallet (GoPay, OVO, Dana)</option><option>Kartu Kredit</option></select></div>
+                        <div><label class="block text-sm font-medium text-slate-700">Nomor Telepon (untuk konfirmasi)</label><input type="tel" placeholder="08xxxxxxxxxx" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></div>
+                        <div class="pt-4"><button type="button" onclick="processPayment()" class="w-full bg-sky-500 text-white font-semibold py-3 rounded-lg hover:bg-sky-600">Bayar Sekarang</button></div>
+                    </form>
+                </div>
             </div>
-
+            
             <div id="csChatPage" class="page">
-                <header class="flex items-center mb-6"><button onclick="showPage('faqPage')" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 class="text-3xl font-bold text-gray-800">Customer Service</h1></header>
-                <div class="bg-white rounded-xl border h-[70vh] flex flex-col">
-                    <div class="p-4 border-b flex items-center"><img src="https://placehold.co/40x40/d1fae5/047857?text=CS" class="rounded-full w-10 h-10 mr-3"><div><p class="font-bold">Customer Service</p><p class="text-xs text-green-500">Online</p></div></div>
-                    <div id="csChatLog" class="flex-grow p-4 space-y-4 overflow-y-auto"><div class="flex justify-start"><div class="bg-slate-100 p-3 rounded-lg max-w-md">Halo! Ada yang bisa kami bantu? Silakan ketik pertanyaan atau keluhanmu di bawah ini.</div></div></div>
-                    <div class="p-4 border-t flex items-center gap-3"><input id="csChatInput" type="text" placeholder="Ketik pesanmu di sini..." class="w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-md focus:outline-none focus:ring-sky-500 focus:border-sky-500"><button id="csSendBtn" class="bg-sky-500 text-white p-2 rounded-md"><i data-lucide="send" class="w-5 h-5"></i></button></div>
+                <header class="flex items-center mb-6"><button onclick="showPage('faqPage')" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 class="text-3xl font-bold text-gray-800">Layanan Pelanggan</h1></header>
+                <div class="bg-white p-8 rounded-xl border shadow-sm max-w-4xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><img src="https://placehold.co/64x64/bfdbfe/1e3a8a?text=CS" class="rounded-full w-16 h-16"></div>
+                        <div class="flex-grow"><h3 class="text-xl font-bold">Customer Service EDUSTELLAR</h3><p class="text-slate-500">Halo! Ada yang bisa kami bantu?</p></div>
+                    </div>
+                    <div class="mt-6 space-y-4">
+                        <div class="bg-slate-100 p-4 rounded-lg"><p class="font-medium">Pertanyaan Umum:</p><ul class="mt-2 space-y-2"><li><a href="#" class="text-sky-500 hover:underline">Bagaimana cara memesan layanan?</a></li><li><a href="#" class="text-sky-500 hover:underline">Metode pembayaran apa saja yang tersedia?</a></li><li><a href="#" class="text-sky-500 hover:underline">Bagaimana cara mengubah jadwal sesi?</a></li></ul></div>
+                        <div><label class="block text-sm font-medium text-slate-700">Tulis pertanyaanmu di sini</label><textarea rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></textarea><button onclick="showNotification('Pesan telah dikirim ke customer service.', 'success')" class="mt-2 bg-sky-500 text-white font-semibold py-2 px-6 rounded-lg">Kirim</button></div>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Modals and Notifications -->
-    <div id="notification-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
-    <div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50" onclick="closeShareModal()">
-        <div class="modal-content bg-white w-full max-w-md rounded-2xl shadow-xl p-6 scale-95 opacity-0" onclick="event.stopPropagation()">
-            <h3 class="text-lg font-bold mb-4">Bagikan Promo Ini!</h3>
-            <div class="flex justify-center gap-4 mb-6">
-                <a href="#" class="p-3 bg-slate-100 rounded-full"><i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i></a>
-                <a href="#" class="p-3 bg-slate-100 rounded-full"><i data-lucide="twitter" class="w-6 h-6 text-sky-500"></i></a>
-                <a href="#" class="p-3 bg-slate-100 rounded-full"><i data-lucide="instagram" class="w-6 h-6 text-pink-500"></i></a>
-                 <a href="#" class="p-3 bg-slate-100 rounded-full"><i data-lucide="message-circle" class="w-6 h-6 text-green-500"></i></a>
-            </div>
-            <div class="flex items-center">
-                <input id="shareLink" type="text" readonly value="https://edulink.app/promo/ajakteman" class="w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-l-md">
-                <button onclick="copyShareLink()" class="bg-sky-500 text-white p-2 rounded-r-md"><i data-lucide="copy" class="w-5 h-5"></i></button>
-            </div>
+    <!-- Notification -->
+    <div id="notification" class="custom-notification fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 hidden">
+        <div class="flex items-center">
+            <i id="notificationIcon" class="w-6 h-6 mr-2"></i>
+            <span id="notificationMessage"></span>
         </div>
     </div>
-    <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50" onclick="closeProfileModal()">
-        <div class="modal-content bg-white w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-xl overflow-hidden flex flex-col scale-95 opacity-0" onclick="event.stopPropagation()">
-            <div class="p-4 border-b flex justify-between items-center bg-slate-50"><h2 id="modalProfileTitle" class="text-xl font-bold text-blue-800">Profil Mentor</h2><button onclick="closeProfileModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button></div>
-            <div id="modalProfileBody" class="p-6 overflow-y-auto"></div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40 hidden">
+        <div class="modal-content bg-white p-6 rounded-xl max-w-md w-full">
+            <h3 class="text-xl font-bold mb-4">Bagikan Kode Referral</h3>
+            <p class="text-slate-600 mb-4">Bagikan kode ini ke temanmu dan dapatkan diskon 25% untuk transaksi berikutnya!</p>
+            <div class="flex items-center mb-4"><input type="text" value="EDUSTELLAR25" readonly class="flex-grow bg-slate-100 p-2 rounded-lg"><button onclick="copyReferralCode()" class="ml-2 bg-sky-500 text-white px-4 py-2 rounded-lg">Salin</button></div>
+            <div class="flex justify-end"><button onclick="closeShareModal()" class="bg-slate-200 text-slate-700 px-4 py-2 rounded-lg">Tutup</button></div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40 hidden">
+        <div class="modal-content bg-white p-6 rounded-xl max-w-md w-full">
+            <h3 class="text-xl font-bold mb-4">Profil Pengguna</h3>
+            <div class="space-y-4">
+                <div><label class="block text-sm font-medium text-slate-700">Nama Lengkap</label><p id="profileName" class="mt-1 text-lg font-medium"></p></div>
+                <div><label class="block text-sm font-medium text-slate-700">Email</label><p id="profileEmail" class="mt-1 text-lg font-medium"></p></div>
+                <div><label class="block text-sm font-medium text-slate-700">Sisa Kuota</label><p id="profileQuota" class="mt-1 text-lg font-medium text-sky-500"></p></div>
+            </div>
+            <div class="flex justify-end mt-6"><button onclick="closeProfileModal()" class="bg-slate-200 text-slate-700 px-4 py-2 rounded-lg">Tutup</button></div>
         </div>
     </div>
 
     <script>
-        // --- Data ---
-        const universities = ['Universitas Indonesia', 'Universitas Gadjah Mada', 'Universitas Airlangga', 'Institut Teknologi Bandung', 'Universitas Padjadjaran', 'Lain-lain'];
-        const majors = ['Manajemen', 'Ilmu Komputer', 'Teknik Kimia', 'Akuntansi', 'Psikologi', 'Lain-lain'];
-        const consulinkServices = ['Bimbingan Pengerjaan Tugas Akademik', 'Bimbingan Mata Kuliah & Dosen', 'Bimbingan Ujian', 'Bimbingan Kehidupan Kampus'];
-        const riselinkServices = ['Bimbingan Penulisan', 'Bimbingan Metodologi & Analisis Data', 'Review & Proofreading', 'Bimbingan Publikasi'];
-        const courseSubjects = ['Kalkulus', 'Statistik', 'Ilmu Ekonomi', 'Akuntansi', 'Kimia Dasar', 'Psikometri'];
-        const competitionBranches = ['Business Plan Competition', 'Startup Competition', 'Olimpiade Mahasiswa', 'Data Science Competition', 'Programming Competition', 'Debat Mahasiswa'];
-        
-        const mentorData = {
-            'Ahmad Maulana': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Kehidupan Kampus', 'Business Plan Competition'], pengalaman: ['- 2 tahun sebagai Konsultan Bisnis Junior'], prestasi: ['- Juara 1 Business Plan Competition Nasional 2023'], keahlian: ['Analisis SWOT', 'Model Bisnis Kanvas'] },
-            'Bella Safira': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Kehidupan Kampus', 'Business Plan Competition'], pengalaman: ['- Project Manager di Startup Edukasi'], prestasi: ['- Pemenang Grant Mahasiswa Wirausaha'], keahlian: ['Riset Pasar', 'Public Speaking'] },
-            'Candra Wijaya': { type: ['courselink', 'riselink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Statistik', 'Bimbingan Penulisan'], pengalaman: ['- Asisten Riset Dosen'], prestasi: ['- Publikasi di Jurnal Mahasiswa'], keahlian: ['SPSS', 'Penulisan Ilmiah'] },
-            'Dian Permata': { type: ['courselink', 'riselink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Ilmu Ekonomi', 'Review & Proofreading'], pengalaman: ['- Tutor Ekonomi Makro'], prestasi: ['- IPK Cum Laude'], keahlian: ['Teori Ekonomi', 'Editing Naskah'] },
-            'Eka Saputra': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Ujian', 'Startup Competition'], pengalaman: ['- Co-founder Komunitas Startup Kampus'], prestasi: ['- Finalis kompetisi startup tingkat nasional'], keahlian: ['Pitching', 'Validasi Ide'] },
-            'Fina Lestari': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Kehidupan Kampus', 'Business Plan Competition'], pengalaman: ['- Mentor di program orientasi mahasiswa baru'], prestasi: ['- Mahasiswa Berprestasi Tingkat Fakultas'], keahlian: ['Manajemen Waktu', 'Komunikasi Interpersonal'] },
-            'Gilang Ramadhan': { type: ['courselink', 'riselink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Akuntansi', 'Bimbingan Metodologi & Analisis Data'], pengalaman: ['- Magang di Divisi Keuangan Perusahaan Multinasional'], prestasi: ['- Sertifikasi Akuntansi Dasar'], keahlian: ['Analisis Laporan Keuangan', 'Riset Kuantitatif'] },
-            'Hana Yuliana': { type: ['courselink', 'riselink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Manajemen', 'Bimbingan Publikasi'], pengalaman: ['- Staff Ahli di BEM'], prestasi: ['- Best Paper di Seminar Mahasiswa'], keahlian: ['Manajemen Proyek', 'Sitasi & Referensi'] },
-            'Indra Gunawan': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Pengerjaan Tugas Akademik', 'Debat Mahasiswa'], pengalaman: ['- Ketua UKM Debat'], prestasi: ['- Best Speaker di Lomba Debat Regional'], keahlian: ['Argumentasi', 'Riset Cepat'] },
-            'Jasmine Putri': { type: ['consulink', 'complink'], univ: 'Universitas Indonesia', jurusan: 'Manajemen', spec: 'Pengembangan Karir & Business Plan', services: ['Bimbingan Mata Kuliah & Dosen', 'Olimpiade Mahasiswa'], pengalaman: ['- Asisten Dosen Pengantar Bisnis'], prestasi: ['- Peserta ONMIPA-PT Bidang Ekonomi'], keahlian: ['Problem Solving', 'Teori Manajemen'] },
-        };
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-        const hotServicesData = [
-            { type: 'riselink', service: 'Bimbingan Penulisan', title: 'Bimbingan Penulisan Skripsi', color: 'violet'},
-            { type: 'courselink', service: 'Kalkulus', title: 'Les Privat Kalkulus', color: 'amber'},
-            { type: 'complink', service: 'Business Plan Competition', title: 'Mentoring Business Plan', color: 'rose'},
-            { type: 'consulink', service: 'Bimbingan Kehidupan Kampus', title: 'Konsultasi Kehidupan Kampus', color: 'emerald'},
-            { type: 'riselink', service: 'Review & Proofreading', title: 'Jasa Proofreading Jurnal', color: 'violet'},
-            { type: 'courselink', service: 'Statistik', title: 'Bimbel Statistik Dasar', color: 'amber'},
-            { type: 'complink', service: 'Debat Mahasiswa', title: 'Pelatihan Debat Bahasa Inggris', color: 'rose'},
-            { type: 'consulink', service: 'Bimbingan Ujian', title: 'Persiapan Ujian Akhir Semester', color: 'emerald'},
-            { type: 'riselink', service: 'Bimbingan Publikasi', title: 'Mentoring Publikasi Sinta 2', color: 'violet'},
-        ];
+        // Initialize localStorage for users if not exists
+        if (!localStorage.getItem('edustellar_users')) {
+            localStorage.setItem('edustellar_users', JSON.stringify([]));
+        }
 
-        // --- DOM Elements ---
-        const authContainer = document.getElementById('authContainer');
-        const appWrapper = document.getElementById('app-wrapper');
-        const authPages = document.querySelectorAll('.auth-page');
-        const pages = document.querySelectorAll('.main-content .page');
-        const sidebarLinks = document.querySelectorAll('.sidebar-link');
-        const featureForm = document.getElementById('featureForm');
-        const featureTitle = document.getElementById('featureTitle');
-        const searchMentorBtn = document.getElementById('searchMentorBtn');
-        const featureFormContainer = document.getElementById('featureFormContainer');
-        const mentorResults = document.getElementById('mentorResults');
-        const mentorList = document.getElementById('mentorList');
-        const profileModal = document.getElementById('profileModal');
-        const modalContent = profileModal.querySelector('.modal-content');
-        const modalProfileTitle = document.getElementById('modalProfileTitle');
-        const modalProfileBody = document.getElementById('modalProfileBody');
+        // Initialize current user data
+        let currentUser = null;
 
-        // --- Functions ---
-        function showAuthPage(pageId) { 
-            authPages.forEach(p => p.classList.remove('active')); 
-            document.getElementById(pageId).classList.add('active'); 
-        }
-        function login() { 
-            authContainer.classList.add('hidden'); 
-            appWrapper.classList.remove('hidden'); 
-            showPage('berandaPage', document.querySelector('.sidebar-link')); 
-        }
-        function logout() { 
-            appWrapper.classList.add('hidden'); 
-            authContainer.classList.remove('hidden'); 
-            showAuthPage('loginPage'); 
-        }
-        function showPage(pageId, clickedLink) { pages.forEach(page => page.classList.remove('active')); document.getElementById(pageId).classList.add('active'); if (pageId === 'featurePage') { document.getElementById('app-wrapper').classList.add('feature-view'); } else { document.getElementById('app-wrapper').classList.remove('feature-view'); } sidebarLinks.forEach(link => link.classList.remove('active')); if (pageId === 'featurePage' || pageId === 'promoDetailPage' || pageId === 'csChatPage' || pageId === 'paymentPage') { return; } if (clickedLink) { clickedLink.classList.add('active'); } else { const linkToActivate = Array.from(sidebarLinks).find(link => link.getAttribute('onclick')?.includes(`'${pageId}'`)); if (linkToActivate) { linkToActivate.classList.add('active'); } } }
-        function generateOptions(optionsArray, selectedValue = '') { return optionsArray.map(option => `<option value="${option}" ${option === selectedValue ? 'selected' : ''}>${option}</option>`).join(''); }
-        function setupFeaturePage(featureType, preselect = {}) {
-            featureForm.innerHTML = ''; 
-            resetFeaturePage();
-            let formContent = '';
-            switch (featureType) {
-                case 'consulink': featureTitle.textContent = 'Consulink'; formContent = `<div><label class="block text-sm font-medium text-slate-600">Universitas</label><select name="univ" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(universities)}</select></div><div><label class="block text-sm font-medium text-slate-600">Jurusan</label><select name="jurusan" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(majors)}</select></div><div><label class="block text-sm font-medium text-slate-600">Layanan Konsultasi</label><select name="service" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(consulinkServices, preselect.service)}</select></div>`; break;
-                case 'riselink': featureTitle.textContent = 'Riselink'; formContent = `<div><label class="block text-sm font-medium text-slate-600">Universitas</label><select name="univ" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(universities)}</select></div><div><label class="block text-sm font-medium text-slate-600">Jurusan</label><select name="jurusan" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(majors)}</select></div><div><label class="block text-sm font-medium text-slate-600">Layanan Riset & Publikasi</label><select name="service" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(riselinkServices, preselect.service)}</select></div>`; break;
-                case 'courselink': featureTitle.textContent = 'Courselink'; formContent = `<div><label class="block text-sm font-medium text-slate-600">Universitas</label><select name="univ" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(universities)}</select></div><div><label class="block text-sm font-medium text-slate-600">Jurusan</label><select name="jurusan" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(majors)}</select></div><div><label class="block text-sm font-medium text-slate-600">Mata Kuliah</label><select name="service" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(courseSubjects, preselect.service)}</select></div>`; break;
-                case 'complink': featureTitle.textContent = 'Complink'; formContent = `<div><label class="block text-sm font-medium text-slate-600">Cabang Lomba Akademik</label><select name="service" class="form-select mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">${generateOptions(competitionBranches, preselect.service)}</select></div>`; break;
+        // Show notification function
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const icon = document.getElementById('notificationIcon');
+            const messageEl = document.getElementById('notificationMessage');
+            
+            // Set notification style based on type
+            notification.className = 'custom-notification fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 flex items-center';
+            if (type === 'success') {
+                notification.classList.add('bg-green-100', 'text-green-800');
+                icon.setAttribute('data-lucide', 'check-circle');
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-100', 'text-red-800');
+                icon.setAttribute('data-lucide', 'x-circle');
+            } else {
+                notification.classList.add('bg-blue-100', 'text-blue-800');
+                icon.setAttribute('data-lucide', 'info');
             }
-            featureForm.innerHTML = formContent;
-            featureForm.dataset.featureType = featureType;
+            
+            messageEl.textContent = message;
+            notification.classList.remove('hidden');
+            lucide.createIcons();
+            
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Auth page navigation
+        function showAuthPage(pageId) {
+            document.querySelectorAll('.auth-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Register function
+        function register(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                showNotification('Konfirmasi kata sandi tidak cocok', 'error');
+                return;
+            }
+            
+            // Check if user already exists
+            const users = JSON.parse(localStorage.getItem('edustellar_users'));
+            const existingUser = users.find(user => user.email === email);
+            
+            if (existingUser) {
+                showNotification('Email sudah terdaftar. Silakan gunakan email lain.', 'error');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                id: Date.now(),
+                firstName,
+                lastName,
+                email,
+                password, // In a real app, this should be hashed
+                quota: 0,
+                createdAt: new Date().toISOString()
+            };
+            
+            // Save user to localStorage
+            users.push(newUser);
+            localStorage.setItem('edustellar_users', JSON.stringify(users));
+            
+            // Show success message
+            showNotification('Pendaftaran berhasil! Silakan masuk dengan akun Anda.', 'success');
+            
+            // Redirect to login page after a short delay
+            setTimeout(() => {
+                showAuthPage('loginPage');
+            }, 1500);
+        }
+
+        // Login function
+        function login(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Check credentials
+            const users = JSON.parse(localStorage.getItem('edustellar_users'));
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                // Set current user
+                currentUser = user;
+                localStorage.setItem('edustellar_current_user', JSON.stringify(user));
+                
+                // Show success message
+                showNotification('Login berhasil!', 'success');
+                
+                // Show app and hide auth
+                setTimeout(() => {
+                    document.getElementById('authContainer').classList.add('hidden');
+                    document.getElementById('app-wrapper').classList.remove('hidden');
+                    
+                    // Update welcome message
+                    document.getElementById('welcomeMessage').textContent = `Selamat Datang, ${user.firstName}!`;
+                    
+                    // Load hot services
+                    loadHotServices();
+                }, 1000);
+            } else {
+                showNotification('Email atau kata sandi salah', 'error');
+            }
+        }
+
+        // Logout function
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('edustellar_current_user');
+            
+            // Show auth and hide app
+            document.getElementById('authContainer').classList.remove('hidden');
+            document.getElementById('app-wrapper').classList.add('hidden');
+            
+            // Reset to login page
+            showAuthPage('loginPage');
+            
+            // Clear forms
+            document.getElementById('loginForm').reset();
+            document.getElementById('registerForm').reset();
+            
+            showNotification('Anda telah logout', 'info');
+        }
+
+        // Check if user is already logged in
+        function checkLoginStatus() {
+            const storedUser = localStorage.getItem('edustellar_current_user');
+            if (storedUser) {
+                currentUser = JSON.parse(storedUser);
+                document.getElementById('authContainer').classList.add('hidden');
+                document.getElementById('app-wrapper').classList.remove('hidden');
+                document.getElementById('welcomeMessage').textContent = `Selamat Datang, ${currentUser.firstName}!`;
+                loadHotServices();
+            }
+        }
+
+        // Page navigation
+        function showPage(pageId, clickedElement = null) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active sidebar link
+            if (clickedElement) {
+                document.querySelectorAll('.sidebar-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                clickedElement.classList.add('active');
+            }
+            
+            // Reset feature view if needed
+            if (pageId === 'berandaPage') {
+                document.getElementById('app-wrapper').classList.remove('feature-view');
+            }
+        }
+
+        // Feature page setup
+        function setupFeaturePage(feature) {
+            const featureTitles = {
+                'consulink': 'Consulink - Konsultasi Akademik',
+                'riselink': 'Riselink - Bimbingan Riset',
+                'courselink': 'Courselink - Les Privat',
+                'complink': 'Complink - Persiapan Kompetisi'
+            };
+            
+            const featureForms = {
+                'consulink': `
+                    <div><label class="block text-sm font-medium text-slate-700">Topik Konsultasi</label><input type="text" placeholder="Misal: Kalkulus, Fisika Dasar, dll" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Tingkat Kesulitan</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Pemula</option><option>Menengah</option><option>Lanjutan</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Jenis Bimbingan</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Konsultasi Singkat (30 menit)</option><option>Bimbingan Intensif (1 jam)</option><option>Paket 5x Pertemuan</option></select></div>
+                `,
+                'riselink': `
+                    <div><label class="block text-sm font-medium text-slate-700">Jenis Karya Tulis</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Skripsi</option><option>Tesis</option><option>Jurnal</option><option>Paper Kompetisi</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Bidang Ilmu</label><input type="text" placeholder="Misal: Teknik Informatika, Manajemen, dll" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Tahapan</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Pemilihan Topik</option><option>Penulisan Proposal</option><option>Analisis Data</option><option>Penulisan Bab</option><option>Revisi</option></select></div>
+                `,
+                'courselink': `
+                    <div><label class="block text-sm font-medium text-slate-700">Mata Kuliah</label><input type="text" placeholder="Misal: Kalkulus, Pemrograman, dll" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Tingkat</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Semester 1-2</option><option>Semester 3-4</option><option>Semester 5-6</option><option>Semester 7-8</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Jenis Les</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Privat (1-on-1)</option><option>Kolektif (max 5 orang)</option></select></div>
+                `,
+                'complink': `
+                    <div><label class="block text-sm font-medium text-slate-700">Jenis Kompetisi</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>ONMIPA</option><option>Debat</option><option>Business Case</option><option>Programming</option><option>Lainnya</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Tingkat</label><select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md form-select"><option>Universitas</option><option>Regional</option><option>Nasional</option><option>Internasional</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700">Bidang</label><input type="text" placeholder="Misal: Matematika, Fisika, dll" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md"></div>
+                `
+            };
+            
+            document.getElementById('featureTitle').textContent = featureTitles[feature];
+            document.getElementById('featureForm').innerHTML = featureForms[feature];
+            
+            // Set up search button
+            document.getElementById('searchMentorBtn').onclick = function() {
+                searchMentors(feature);
+            };
+            
+            // Show feature page
+            document.getElementById('app-wrapper').classList.add('feature-view');
             showPage('featurePage');
         }
-        function openHotService(featureType, serviceName) { setupFeaturePage(featureType, { service: serviceName }); }
-        
-        function filterAndDisplayMentors() {
-            mentorList.innerHTML = '';
-            const matchingMentors = Object.entries(mentorData);
 
-            if (matchingMentors.length > 0) {
-                matchingMentors.forEach(([name, data]) => {
-                    mentorList.innerHTML += `
-                        <div class="border bg-white rounded-lg p-4 flex items-center space-x-4 hover:bg-slate-50">
-                            <img src="https://placehold.co/64x64/bae6fd/1e3a8a?text=${name.charAt(0)}" class="w-16 h-16 rounded-full flex-shrink-0">
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-lg text-blue-800">${name}</h4>
-                                <p class="text-sm text-slate-600">${data.univ} - ${data.jurusan}</p>
-                                <p class="text-sm text-slate-500 mt-1">${data.spec}</p>
-                            </div>
-                            <div class="flex flex-col gap-2 flex-shrink-0 w-40">
-                                <button onclick="openProfileModal('${name}')" class="bg-sky-100 text-sky-700 text-sm font-semibold py-2 px-4 rounded-md hover:bg-sky-200 w-full text-center">Lihat Profil</button>
-                                <button onclick="showPaymentPage({type: 'Mentor', name: '${name}', price: '6000'})" class="bg-sky-500 text-white text-sm font-semibold py-2 px-4 rounded-md hover:bg-sky-600 w-full text-center">Click untuk memilih</button>
-                            </div>
-                        </div>`;
-                });
-            } else {
-                mentorList.innerHTML = `<div class="text-center py-10 bg-slate-50 rounded-lg"><i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-400"></i><h3 class="mt-4 font-semibold">Mentor tidak ditemukan</h3><p class="text-sm text-slate-500">Coba ubah kriteria pencarianmu.</p></div>`;
-            }
+        // Search mentors function
+        function searchMentors(feature) {
+            // In a real app, this would be an API call
+            // For demo, we'll use mock data
+            const mockMentors = {
+                'consulink': [
+                    { name: 'Anisa Putri', university: 'Universitas Indonesia', rating: 4.9, price: '50.000', specialty: 'Matematika & Fisika', image: 'A' },
+                    { name: 'Budi Santoso', university: 'Institut Teknologi Bandung', rating: 4.8, price: '45.000', specialty: 'Kimia & Biologi', image: 'B' },
+                    { name: 'Citra Lestari', university: 'Universitas Gadjah Mada', rating: 4.7, price: '55.000', specialty: 'Ekonomi & Manajemen', image: 'C' }
+                ],
+                'riselink': [
+                    { name: 'Dewi Anggraini', university: 'Universitas Indonesia', rating: 4.9, price: '75.000', specialty: 'Penulisan Jurnal', image: 'D' },
+                    { name: 'Eko Prasetyo', university: 'Institut Teknologi Bandung', rating: 4.8, price: '70.000', specialty: 'Analisis Data', image: 'E' },
+                    { name: 'Fitri Handayani', university: 'Universitas Gadjah Mada', rating: 4.7, price: '80.000', specialty: 'Metodologi Penelitian', image: 'F' }
+                ],
+                'courselink': [
+                    { name: 'Gunawan Setiawan', university: 'Universitas Indonesia', rating: 4.9, price: '60.000', specialty: 'Pemrograman', image: 'G' },
+                    { name: 'Hana Wijaya', university: 'Institut Teknologi Bandung', rating: 4.8, price: '55.000', specialty: 'Kalkulus & Aljabar', image: 'H' },
+                    { name: 'Indra Kurniawan', university: 'Universitas Gadjah Mada', rating: 4.7, price: '65.000', specialty: 'Statistika', image: 'I' }
+                ],
+                'complink': [
+                    { name: 'Joko Susilo', university: 'Universitas Indonesia', rating: 4.9, price: '90.000', specialty: 'ONMIPA Matematika', image: 'J' },
+                    { name: 'Kartika Sari', university: 'Institut Teknologi Bandung', rating: 4.8, price: '85.000', specialty: 'Debat Bahasa Inggris', image: 'K' },
+                    { name: 'Luki Hermawan', university: 'Universitas Gadjah Mada', rating: 4.7, price: '95.000', specialty: 'Business Case', image: 'L' }
+                ]
+            };
+            
+            const mentors = mockMentors[feature];
+            const mentorList = document.getElementById('mentorList');
+            mentorList.innerHTML = '';
+            
+            mentors.forEach(mentor => {
+                const mentorEl = document.createElement('div');
+                mentorEl.className = 'bg-white p-4 rounded-lg border flex items-center';
+                mentorEl.innerHTML = `
+                    <img src="https://placehold.co/64x64/bfdbfe/1e3a8a?text=${mentor.image}" class="rounded-full w-16 h-16 mr-4">
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-lg">${mentor.name}</h3>
+                        <p class="text-slate-600">${mentor.university} • ${mentor.specialty}</p>
+                        <div class="flex items-center mt-1">
+                            <i data-lucide="star" class="w-4 h-4 text-amber-500 fill-amber-500 mr-1"></i>
+                            <span class="font-medium">${mentor.rating}</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold text-sky-500">Rp ${mentor.price}</p>
+                        <button onclick="showNotification('Fitur pemesanan mentor akan segera hadir!', 'info')" class="mt-2 bg-sky-500 text-white font-semibold py-2 px-4 rounded-lg text-sm">Pilih Mentor</button>
+                    </div>
+                `;
+                mentorList.appendChild(mentorEl);
+            });
+            
+            document.getElementById('featureFormContainer').classList.add('hidden');
+            document.getElementById('mentorResults').classList.remove('hidden');
             lucide.createIcons();
         }
 
-        function resetFeaturePage() { featureFormContainer.classList.remove('hidden'); mentorResults.classList.add('hidden'); mentorList.innerHTML = ''; }
-        function showNotification(message, type = 'info') { const container = document.getElementById('notification-container'); const notif = document.createElement('div'); const colors = { info: 'bg-blue-500', success: 'bg-green-500', error: 'bg-red-500' }; notif.className = `custom-notification text-white text-sm font-semibold px-4 py-2 rounded-md shadow-lg opacity-0 transform translate-x-10 ${colors[type]}`; notif.textContent = message; container.appendChild(notif); setTimeout(() => { notif.classList.remove('opacity-0', 'translate-x-10'); }, 10); setTimeout(() => { notif.classList.add('opacity-0', 'translate-x-10'); notif.addEventListener('transitionend', () => notif.remove()); }, 3000); }
-        function openShareModal() { const modal = document.getElementById('shareModal'); modal.classList.remove('hidden'); setTimeout(() => { modal.classList.remove('opacity-0'); modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'); }, 10); }
-        function closeShareModal() { const modal = document.getElementById('shareModal'); modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0'); modal.classList.add('opacity-0'); setTimeout(() => modal.classList.add('hidden'), 300); }
-        function copyShareLink() { navigator.clipboard.writeText('https://edulink.app/promo/ajakteman').then(() => { showNotification('Link disalin!', 'success'); }); }
-        
-        function openProfileModal(mentorName) {
-            const data = mentorData[mentorName];
-            if (!data) return;
-
-            modalProfileTitle.textContent = `Profil ${mentorName}`;
-            modalProfileBody.innerHTML = `
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <img src="https://placehold.co/128x128/bae6fd/1e3a8a?text=${mentorName.charAt(0)}" class="w-32 h-32 rounded-full mx-auto md:mx-0 flex-shrink-0">
-                    <div>
-                        <h3 class="text-2xl font-bold">${mentorName}</h3>
-                        <p class="text-md text-slate-600">${data.univ} - ${data.jurusan}</p>
-                        <p class="text-md text-sky-600 font-semibold mt-1">${data.spec}</p>
+        // Load hot services
+        function loadHotServices() {
+            const container = document.getElementById('hot-services-container');
+            container.innerHTML = `
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Layanan Terpopuler</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center p-4 bg-slate-50 rounded-lg">
+                        <div class="bg-emerald-100 rounded-lg w-16 h-16 flex items-center justify-center mr-4">
+                            <i data-lucide="messages-square" class="w-8 h-8 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Konsultasi Skripsi</h3>
+                            <p class="text-sm text-slate-500">Bimbingan intensif bab 1-5</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-slate-50 rounded-lg">
+                        <div class="bg-violet-100 rounded-lg w-16 h-16 flex items-center justify-center mr-4">
+                            <i data-lucide="file-text" class="w-8 h-8 text-violet-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Review Jurnal</h3>
+                            <p class="text-sm text-slate-500">Proofreading & formatting</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-slate-50 rounded-lg">
+                        <div class="bg-amber-100 rounded-lg w-16 h-16 flex items-center justify-center mr-4">
+                            <i data-lucide="book-open" class="w-8 h-8 text-amber-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Les Kalkulus</h3>
+                            <p class="text-sm text-slate-500">Persiapan UTS & UAS</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-slate-50 rounded-lg">
+                        <div class="bg-rose-100 rounded-lg w-16 h-16 flex items-center justify-center mr-4">
+                            <i data-lucide="trophy" class="w-8 h-8 text-rose-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Persiapan ONMIPA</h3>
+                            <p class="text-sm text-slate-500">Latihan soal tingkat nasional</p>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-6 space-y-4">
-                    <div><h4 class="font-bold text-blue-800 border-b pb-1 mb-2">Pengalaman</h4><ul class="list-disc list-inside text-slate-600">${data.pengalaman.map(item => `<li>${item}</li>`).join('') || '<li>Data belum tersedia.</li>'}</ul></div>
-                    <div><h4 class="font-bold text-blue-800 border-b pb-1 mb-2">Prestasi</h4><ul class="list-disc list-inside text-slate-600">${data.prestasi.map(item => `<li>${item}</li>`).join('') || '<li>Data belum tersedia.</li>'}</ul></div>
-                    <div><h4 class="font-bold text-blue-800 border-b pb-1 mb-2">Keahlian</h4><div class="flex flex-wrap gap-2 mt-2">${data.keahlian.map(item => `<span class="bg-sky-100 text-sky-800 text-sm font-medium px-3 py-1 rounded-full">${item}</span>`).join('') || '<p class="text-slate-600">Data belum tersedia.</p>'}</div></div>
-                </div>`;
-            profileModal.classList.remove('hidden');
-            setTimeout(() => { profileModal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95', 'opacity-0'); }, 10);
+            `;
+            lucide.createIcons();
         }
 
-        function closeProfileModal() {
-            modalContent.classList.add('scale-95', 'opacity-0');
-            profileModal.classList.add('opacity-0');
-            setTimeout(() => { profileModal.classList.add('hidden'); }, 300);
-        }
-        
-        function showPaymentPage(item) {
-            const paymentContainer = document.getElementById('paymentPage');
-            paymentContainer.innerHTML = `
-                <header class="flex items-center mb-6"><button onclick="history.back()" class="text-slate-500 hover:text-sky-500 mr-4 p-2 rounded-full hover:bg-slate-200"><i data-lucide="arrow-left" class="w-6 h-6"></i></button><h1 class="text-3xl font-bold text-gray-800">Konfirmasi Pembayaran</h1></header>
-                <div class="max-w-4xl mx-auto">
-                    <div id="payment-content" class="bg-white rounded-xl border p-8">
-                        <div class="border rounded-lg p-4 mb-6"><h3 class="font-bold">Detail Pesanan</h3><div class="flex justify-between items-center mt-2"><span id="transItemName">${item.name}</span><span id="transItemPrice" class="font-bold text-lg">Rp ${Number(item.price).toLocaleString('id-ID')}</span></div></div>
-                        <div><h3 class="font-bold mb-4">Pilih Metode Pembayaran</h3><div class="space-y-3"><label class="flex items-center p-4 border rounded-lg has-[:checked]:bg-sky-50 has-[:checked]:border-sky-500"><input type="radio" name="payment" class="w-5 h-5 text-sky-600 focus:ring-sky-500 mr-4" checked><span class="font-semibold">E-Wallet (GoPay, OVO, Dana)</span></label><label class="flex items-center p-4 border rounded-lg has-[:checked]:bg-sky-50 has-[:checked]:border-sky-500"><input type="radio" name="payment" class="w-5 h-5 text-sky-600 focus:ring-sky-500 mr-4"><span class="font-semibold">Virtual Account (BCA, Mandiri, BRI)</span></label></div></div>
-                        <div class="flex gap-4 mt-8"><button onclick="history.back()" class="w-full bg-slate-200 text-slate-700 font-semibold py-3 rounded-lg hover:bg-slate-300">Batal</button><button onclick="processPayment()" class="w-full bg-sky-500 text-white font-semibold py-3 rounded-lg hover:bg-sky-600">Bayar Sekarang</button></div>
-                    </div>
-                    <div id="payment-processing" class="hidden text-center bg-white rounded-xl border p-8">
-                        <i data-lucide="loader-2" class="w-12 h-12 mx-auto text-sky-500 animate-spin mb-4"></i><h2 class="text-xl font-bold">Transaksi sedang diproses...</h2><p class="text-slate-500 mt-2">Mohon tunggu sebentar, jangan tutup halaman ini.</p>
-                    </div>
-                     <div id="payment-reload" class="hidden text-center bg-white rounded-xl border p-8">
-                        <i data-lucide="alert-circle" class="w-12 h-12 mx-auto text-amber-500 mb-4"></i><h2 class="text-xl font-bold">Menunggu Konfirmasi</h2><p class="text-slate-500 mt-2">Jika pembayaran sudah dilakukan, silakan muat ulang status.</p><button onclick="confirmPayment()" class="mt-6 bg-amber-500 text-white font-semibold py-2 px-6 rounded-lg">Muat Ulang</button>
-                    </div>
-                </div>`;
-            lucide.createIcons();
-            showPage('paymentPage');
-        }
-        function processPayment() { document.getElementById('payment-content').classList.add('hidden'); document.getElementById('payment-processing').classList.remove('hidden'); setTimeout(() => { document.getElementById('payment-processing').classList.add('hidden'); document.getElementById('payment-reload').classList.remove('hidden'); }, 3000); }
-        function confirmPayment() { showNotification('Pembayaran berhasil!', 'success'); showPage('berandaPage'); }
+        // Mentor registration functions
         function showMentorRegisterForm(category) {
             document.getElementById('mentorRegisterSelection').classList.add('hidden');
             document.getElementById('mentorRegisterFormContainer').classList.remove('hidden');
             document.getElementById('mentorRegisterFormTitle').textContent = `Formulir Pendaftaran Mentor ${category}`;
         }
+
         function showMentorRegisterSelection() {
             document.getElementById('mentorRegisterSelection').classList.remove('hidden');
             document.getElementById('mentorRegisterFormContainer').classList.add('hidden');
             document.getElementById('mentorRegisterSuccess').classList.add('hidden');
         }
-        function submitMentorForm() { 
-            document.getElementById('mentorRegisterFormContainer').classList.add('hidden'); 
-            document.getElementById('mentorRegisterSuccess').classList.remove('hidden'); 
+
+        function submitMentorForm() {
+            // In a real app, this would submit to a server
+            document.getElementById('mentorRegisterFormContainer').classList.add('hidden');
+            document.getElementById('mentorRegisterSuccess').classList.remove('hidden');
+            showNotification('Pendaftaran mentor berhasil dikirim!', 'success');
         }
-        function handleCsChat() {
-            const input = document.getElementById('csChatInput');
-            const chatLog = document.getElementById('csChatLog');
-            if (input.value.trim() === '') return;
-            chatLog.innerHTML += `<div class="flex justify-end"><div class="bg-blue-800 text-white p-3 rounded-lg max-w-md">${input.value}</div></div>`;
-            input.value = '';
-            chatLog.scrollTop = chatLog.scrollHeight;
+
+        // Payment functions
+        function showPaymentPage(item) {
+            document.getElementById('paymentItem').textContent = `${item.type}: ${item.name}`;
+            document.getElementById('paymentPrice').textContent = `Rp ${parseInt(item.price).toLocaleString('id-ID')}`;
+            showPage('paymentPage');
+        }
+
+        function processPayment() {
+            showNotification('Pembayaran berhasil! Layanan telah ditambahkan ke akun Anda.', 'success');
             setTimeout(() => {
-                chatLog.innerHTML += `<div class="flex justify-start"><div class="bg-slate-100 p-3 rounded-lg max-w-md">Halo Rifki,<br><br>Terima kasih telah menghubungi EDULINK.<br>Pesan/keluhanmu sudah kami terima dengan baik dan saat ini sedang dalam proses peninjauan oleh tim kami. Mohon bersabar, kami akan segera memberikan balasan maksimal dalam 1x24 jam melalui chat ini atau email yang terdaftar.<br><br>Untuk mempercepat tindak lanjut, pastikan kamu sudah menyertakan informasi yang relevan.<br><br>Jika masalahmu sifatnya darurat, kamu bisa menghubungi kami melalui:<br>📧 support@edulink.com<br>📱 WhatsApp: +62-831-8025-3832</div></div>`;
-                chatLog.scrollTop = chatLog.scrollHeight;
-            }, 1500);
-        }
-        function populateHotServices() {
-            const container = document.getElementById('hot-services-container');
-            let content = `<div class="flex items-center gap-3 mb-5"><i data-lucide="flame" class="w-7 h-7 text-orange-500"></i><h2 class="text-2xl font-bold text-blue-800">Sedang Ramai Digunakan</h2></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">`;
-            hotServicesData.forEach(item => {
-                const userCount = Math.floor(Math.random() * (200 - 20 + 1)) + 20;
-                content += `<div onclick="openHotService('${item.type}', '${item.service}')" class="bg-slate-100 p-4 rounded-lg cursor-pointer hover:bg-slate-200/70">
-                                <div class="flex justify-between items-start">
-                                    <div><h4 class="font-semibold">${item.title}</h4><p class="text-sm text-${item.color}-600 font-medium capitalize">${item.type}</p></div>
-                                    <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400 flex-shrink-0"></i>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-2">${userCount} orang sedang menggunakan</p>
-                            </div>`;
-            });
-            content += `</div>`;
-            container.innerHTML = content;
+                showPage('berandaPage');
+            }, 2000);
         }
 
-        document.addEventListener('DOMContentLoaded', () => { 
-            populateHotServices();
+        // Share modal functions
+        function openShareModal() {
+            document.getElementById('shareModal').classList.remove('hidden');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.add('hidden');
+        }
+
+        function copyReferralCode() {
+            navigator.clipboard.writeText('EDUSTELLAR25');
+            showNotification('Kode referral disalin!', 'success');
+        }
+
+        // Profile modal functions
+        function openProfileModal() {
+            if (currentUser) {
+                document.getElementById('profileName').textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+                document.getElementById('profileEmail').textContent = currentUser.email;
+                document.getElementById('profileQuota').textContent = `${currentUser.quota} transaksi tersisa`;
+                document.getElementById('profileModal').classList.remove('hidden');
+            }
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+        }
+
+        // Event listeners
+        document.getElementById('registerForm').addEventListener('submit', register);
+        document.getElementById('loginForm').addEventListener('submit', login);
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
             lucide.createIcons();
-            searchMentorBtn.addEventListener('click', () => { if (!featureForm.checkValidity()) { featureForm.reportValidity(); return; } featureFormContainer.classList.add('hidden'); mentorResults.classList.remove('hidden'); filterAndDisplayMentors(); });
-            document.getElementById('csSendBtn').addEventListener('click', handleCsChat);
-            document.getElementById('csChatInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') handleCsChat(); });
-
-            // Make the script executable by attaching functions to window
-            window.showAuthPage = showAuthPage;
-            window.login = login;
-            window.logout = logout;
-            window.showPage = showPage;
-            window.setupFeaturePage = setupFeaturePage;
-            window.openHotService = openHotService;
-            window.filterAndDisplayMentors = filterAndDisplayMentors;
-            window.resetFeaturePage = resetFeaturePage;
-            window.showNotification = showNotification;
-            window.openShareModal = openShareModal;
-            window.closeShareModal = closeShareModal;
-            window.copyShareLink = copyShareLink;
-            window.openProfileModal = openProfileModal;
-            window.closeProfileModal = closeProfileModal;
-            window.showPaymentPage = showPaymentPage;
-            window.processPayment = processPayment;
-            window.confirmPayment = confirmPayment;
-            window.submitMentorForm = submitMentorForm;
-            window.handleCsChat = handleCsChat;
-            window.showMentorRegisterForm = showMentorRegisterForm;
-            window.showMentorRegisterSelection = showMentorRegisterSelection;
         });
     </script>
 </body>
 </html>
-
